@@ -16,7 +16,7 @@ export class UsersService {
     private readonly rolesRepository: Repository<Role>,
   ) {}
 
-  async create(createUserDto: CreateUserDto): Promise<User> {
+  async create(createUserDto: CreateUserDto): Promise<Partial<User>> {
     const role = await this.rolesRepository.findOneBy({ name: Roles.USER })
 
     if (!role) {
@@ -34,7 +34,10 @@ export class UsersService {
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(createUserDto.password, salt);
 
-    return this.usersRepository.save(user);
+    const savedUser = await this.usersRepository.save(user);
+    const { password, ...cleanedUser } = savedUser;
+
+    return cleanedUser;
   }
 
   findAll(): Promise<User[]> {

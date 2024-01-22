@@ -48,7 +48,7 @@ describe('UsersService', () => {
     updateUserDto = { nickName: 'SmithyWithy' }
 
     usersRepositoryMock = {
-      save: jest.fn(),
+      save: jest.fn(() => user),
       findOneBy: jest.fn(() => user)
     };
 

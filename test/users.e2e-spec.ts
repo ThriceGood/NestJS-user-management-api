@@ -25,7 +25,7 @@ describe('UsersController (e2e)', () => {
   }
 
   let userRepositoryMock = {
-    save: jest.fn(),
+    save: jest.fn(() => user),
     find: jest.fn(() => [user]),
     findOneBy: jest.fn(() => user),
     delete: jest.fn()

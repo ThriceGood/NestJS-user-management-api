@@ -1,0 +1,1 @@
+docker exec nest-users-api npm run test:all

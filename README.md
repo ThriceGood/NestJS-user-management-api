@@ -36,11 +36,21 @@ Docker and Docker Compose
 $ docker compose up
 ```
 
-This will build and start the API and database containers, run the database migrations, run the tests and start the Nest API. 
+This will build and start the API and database containers, run the database migrations and start the Nest API.
+
+## Run the tests
+
+To run the tests use the convenience script:
+
+```bash
+$ ./run-tests.sh
+```
 
 ## Using the application
 
-Once the containers are up and running navigate to the Swagger interface at: `http://localhost:3000/swagger`
+Once the containers are up and running navigate to the Swagger interface at: [http://localhost:3000/swagger](http://localhost:3000/swagger)
+
+![swagger interface](swagger.png)
 
 ### Create a user
 
